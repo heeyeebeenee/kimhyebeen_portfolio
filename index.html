@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyebeen Profile</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Pretendard", sans-serif;
+            background: black; 
+            color: #f7f7f7;
+            overflow-x: hidden;
+            padding-bottom: 200px; /* 스크롤 여유 공간 */
+            transition: background 1s ease, color 1s ease;
+        }
+
+        /* WELCOME (인트로) */
+        #introText {
+            font-size: 100px;        /* 폰트 크기 조절 가능 */
+            font-weight: bold;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            text-align: center;
+            opacity: 1;
+            transition: opacity 1s ease;
+        }
+
+        /* 메인 콘텐츠 */
+        #mainContent {
+            display: none;
+            opacity: 0;
+            transition: opacity 1.3s ease;
+        }
+
+        /* “Hi! I'm Hyebeen!” 글자 bounce */
+        .intro-letters {
+            display: flex;
+            justify-content: center;
+            margin-top: 120px;
+            font-size: 50px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .intro-letters span {
+            display: inline-block;
+            opacity: 0;
+            animation: bounceIn 0.6s ease forwards;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: translateY(20px) scale(0.8); opacity: 0; }
+            60% { transform: translateY(-10px) scale(1.05); opacity: 1; }
+            100% { transform: translateY(0) scale(1); opacity: 1; }
+        }
+
+        /* 사진 + 프로필 박스 정렬 */
+        .box-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            padding: 20px;
+        }
+
+
+        /* 공통 박스 스타일 */
+        .photo-box, .profile-box {
+            width: 320px;
+            padding: 25px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.85);
+            color: black;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+        }
+
+        /* PHOTO 제목 → 왼쪽 위 */
+        .photo-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            text-align: left;
+        }
+
+        .photo-img {
+            width: 100%;
+            border-radius: 15px;   /* 사진 모서리 둥글게 (원하면 제거 가능) */
+            object-fit: cover;      /* 박스 잘 맞춤 */
+        }
+
+        /* 프로필 상단 제목 */
+        .profile-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        /* 프로필 내용 */
+        .profile-item {
+            margin-bottom: 12px;
+            line-height: 1.6;
+            font-size: 18px;
+        }
+
+        /* 페이드아웃 구분선 */
+        .section-line {
+            width: 60%;
+            height: 2px;
+            margin: 60px auto;
+            background: linear-gradient(
+                to right,
+                transparent,
+                #cfcfcf,
+                transparent
+            );
+        }
+
+        /* 작은 박스 3개 */
+        .small-box-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .small-box {
+            width: 140px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+            color: black;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        /* footer 주소 */
+        .footer-text {
+          font-size: 13px;
+          color: #cfcfcf;
+          margin-bottom: 60px;
+            text-align : center;
+        }
+
+        a {
+          color: inherit;       /* 현재 글씨 색과 동일 */
+          text-decoration: none; /* 밑줄 제거 (원하면 빼도 됨) */
+        }
+
+        a:visited {
+          color: inherit;       /* 방문해도 색 그대로 유지 */
+          text-decoration: none;
+        }
+
+        a:hover {
+          opacity: 0.7;         /* 호버 시만 살짝 효과 주기 (선택사항) */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 첫 화면 인트로 -->
+    <div id="introText">Hey! Hyebeen!</div>
+
+    <!-- 메인 콘텐츠 -->
+    <div id="mainContent">
+
+        <!-- bounce-in text -->
+        <div class="intro-letters" id="helloText"></div>
+
+        <!-- PHOTO + PROFILE 박스 -->
+        <div class="box-container">
+
+            <div class="photo-box">
+                <div class="photo-title">Photo</div>
+                <!-- 여기에 나중에 이미지 넣으면 됨 -->
+                <img src="photo.jpg" alt="My Photo" class="photo-img">
+            </div>
+
+            <div class="profile-box">
+                <div class="profile-title">Profile</div>
+
+                <div class="profile-item"><b>Name</b> : 김혜빈</div>
+                <div class="profile-item"><b>Birth</b> : 2000.07.04</div>
+                <div class="profile-item"><b>Age</b> : 27</div>
+                <div class="profile-item"><b>Address</b> : 대한민국 서울</div>
+                <div class="profile-item"><b>University</b> : 강원대학교</div>
+                <div class="profile-item"><b>Major</b> : 통계학 & 인공지능사이버보안</div>
+                <div class="profile-item"><b>Interest</b> : 포렌식, 네트워크</div>
+            </div>
+        </div>
+
+        <!-- 구분선 -->
+        <div class="section-line"></div>
+
+        <!-- 아래 작은 박스들 -->
+        <div class="small-box-wrapper">
+            <div class="small-box"><a href="project.html">Project</a></div>
+            <div class="small-box"><a href="challenge.html">Challenge</a></div>
+            <div class="small-box"><a href="experience.html">Experience</a></div>
+        </div>
+
+            <div class="section-line"></div>
+
+    <div class="footer-text">여기에 주소가 들어갈 예정입니다.</div>
+
+    </div>
+
+
+<script>
+    /* 3초 후 화면 전환 */
+    setTimeout(() => {
+        document.body.style.background = "#f7f7f7";
+        document.body.style.color = "black";
+
+        document.getElementById("introText").style.opacity = 0;
+
+        setTimeout(() => {
+            document.getElementById("introText").style.display = "none";
+            const main = document.getElementById("mainContent");
+            main.style.display = "block";
+
+            setTimeout(() => main.style.opacity = 1, 50);
+
+            /* Hi! I'm Hyebeen! 글자 하나씩 bounce */
+            const text = "Hi! I'm Hyebeen!";
+            const hello = document.getElementById("helloText");
+
+            [...text].forEach((ch, i) => {
+                const span = document.createElement("span");
+                span.textContent = ch;
+                span.style.animationDelay = (i * 0.08) + "s";
+                hello.appendChild(span);
+            });
+
+        }, 900);
+
+    }, 3000);
+</script>
+
+</body>
+</html>
